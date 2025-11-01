@@ -55,13 +55,13 @@ load_dotenv()
 logger.info(f"Running on machine ID: {unique_id}")
 
 # Retrieve values from .env
-DATA_DIR = os.getenv('DATA_DIR', './')
+DATA_DIR = os.getenv('DATA_DIR', './data/')
 SQLITE_DB_FILENAME = os.getenv('DB_FILENAME', 'images.db')
 FILELIST_CACHE_FILENAME = os.getenv('CACHE_FILENAME', 'filelist_cache.msgpack')
 SOURCE_IMAGE_DIRECTORY = os.getenv('IMAGE_DIRECTORY', 'images')
 CHROMA_DB_PATH = os.getenv('CHROME_PATH', f"{DATA_DIR}{unique_id}_chroma")
 CHROMA_COLLECTION_NAME = os.getenv('CHROME_COLLECTION', "images")
-NUM_IMAGE_RESULTS = int(os.getenv('NUM_IMAGE_RESULTS', 52))
+NUM_IMAGE_RESULTS = int(os.getenv('NUM_IMAGE_RESULTS', 4))
 CLIP_MODEL = os.getenv('CLIP_MODEL', "openai/clip-vit-base-patch32")
 
 logger.debug("Configuration loaded.")
@@ -221,4 +221,4 @@ def serve_image(filename):
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0")
+    app.run(debug=True, host="0.0.0.0", port=5050)

@@ -51,7 +51,7 @@ load_dotenv()
 logger.info(f"Running on machine ID: {unique_id}")
 
 # Retrieve values from .env
-DATA_DIR = os.getenv('DATA_DIR', './')
+DATA_DIR = os.getenv('DATA_DIR', './data/')
 SQLITE_DB_FILENAME = os.getenv('DB_FILENAME', 'images.db')
 FILELIST_CACHE_FILENAME = os.getenv('CACHE_FILENAME', 'filelist_cache.msgpack')
 SOURCE_IMAGE_DIRECTORY = os.getenv('IMAGE_DIRECTORY', 'images')
